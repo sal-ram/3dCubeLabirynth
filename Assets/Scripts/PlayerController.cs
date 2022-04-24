@@ -5,25 +5,21 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private float strength = 2f;
-    private float verticalInput;
-    private float horizontalInput;
-    public static bool IsFinished = false; 
+    private InputController controller;
+    public static bool IsFinished = false;
     Rigidbody rg;
     // Start is called before the first frame update
     void Start()
     {
+        controller = FindObjectOfType<InputController>();
+        controller.playerObj = this;
         rg = gameObject.GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    public void MovePlayer(float vertical, float horizontal)
     {
-        verticalInput = Input.GetAxis("Vertical");
-
-        horizontalInput = Input.GetAxis("Horizontal");
-
-        rg.AddForce(Vector3.right * strength *(-1)* Time.deltaTime * verticalInput, ForceMode.Acceleration);
-        rg.AddForce(Vector3.forward * strength * (-1) * Time.deltaTime * horizontalInput, ForceMode.Acceleration);
+        rg.AddForce(Vector3.right * strength * (-1) * vertical, ForceMode.Acceleration);
+        rg.AddForce(Vector3.forward * strength * (-1) * horizontal, ForceMode.Acceleration);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -38,7 +34,6 @@ public class PlayerController : MonoBehaviour
         {
             IsFinished = true;
         }
-
     }
 
 }

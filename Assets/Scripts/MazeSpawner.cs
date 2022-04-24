@@ -14,17 +14,19 @@ public class MazeSpawner : MonoBehaviour
     public GameObject TopParent;
     public GameObject BottomParent;
 
-    private List<GameObject> parents = new List<GameObject>();
-    private List<GameObject> children = new List<GameObject>();
+    private List<GameObject> parents;
+    private List<GameObject> children;
 
     public int sizeCube { get; set; }
 
     public static float coeff = 2;
 
     public static int length;
-    
+
     public void SpawnMaze()
     {
+        parents = new List<GameObject>();
+        children = new List<GameObject>();
         MazeCubeGenerator mazeGenerator = new MazeCubeGenerator(sizeCube);
 
         Debug.Log(mazeGenerator.Size);
@@ -63,7 +65,7 @@ public class MazeSpawner : MonoBehaviour
 
                 children.Add(BackChild);
 
-                Cell cell =BackChild.GetComponent<Cell>();
+                Cell cell = BackChild.GetComponent<Cell>();
                 cell.WallLeft.SetActive(maze[x, y, length].WallLeft);
                 cell.WallBottom.SetActive(maze[x, y, length].WallBottom);
                 cell.floor.SetActive(maze[x, y, length].floor);
@@ -159,14 +161,14 @@ public class MazeSpawner : MonoBehaviour
 
     public void OnDestroy()
     {
+        foreach (GameObject parent in parents)
+        {
+            parent.transform.position = Vector3.zero;
+        }
+
         foreach (GameObject child in children)
         {
             Destroy(child.gameObject);
-        }
-
-        foreach (GameObject parent in parents)
-        {
-            parent.transform.position = Vector3.zero; 
         }
     }
     // функция, которая случайно устанаваливает Шарик к которой нужно прийти в лабиринте

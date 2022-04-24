@@ -197,8 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MazeSpawner: {fileID: 891293082}
   PlayerSpawner: {fileID: 1439363511}
-  finishWindow: {fileID: 891276816}
-  MainMenuButton: {fileID: 1414422063}
+  MainMenu: {fileID: 1878896082}
 --- !u!4 &162070870
 Transform:
   m_ObjectHideFlags: 0
@@ -960,7 +959,6 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
-  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1033,18 +1031,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &963194229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26b4cf3401f5e584ca2a75a8c97082c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1035349006
 GameObject:
   m_ObjectHideFlags: 0
@@ -2141,6 +2127,7 @@ GameObject:
   - component: {fileID: 1878896080}
   - component: {fileID: 1878896079}
   - component: {fileID: 1878896078}
+  - component: {fileID: 1878896082}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2231,6 +2218,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1878896082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878896077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 769e8fb5e6b5a6c4db30a9a5b5120fb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainMenu: {fileID: 390066581}
+  FinishWindow: {fileID: 891276816}
+  MainMenuButton: {fileID: 1414422063}
 --- !u!1 &1884442895
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,8 +9,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject MazeSpawner;
     public GameObject PlayerSpawner;
-    public GameObject finishWindow;
-    public GameObject MainMenuButton;
+
+    public ViewManager MainMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +24,7 @@ public class GameManager : MonoBehaviour
     {
         if (PlayerController.IsFinished)
         {
-            finishWindow.SetActive(true);
-            MainMenuButton.SetActive(false);
+            MainMenu.FinishWindowActivate();
             PlayerController.IsFinished = false;
         }
     }

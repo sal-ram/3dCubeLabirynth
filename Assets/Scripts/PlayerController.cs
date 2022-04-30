@@ -6,8 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     private float strength = 2f;
     private InputController controller;
-    public static bool IsFinished = false;
+    public static bool IsFinished { get; set; } = false;
     Rigidbody rg;
+
     // Start is called before the first frame update
     void Start()
     {

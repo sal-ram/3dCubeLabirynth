@@ -4,33 +4,31 @@ using UnityEngine;
 
 public class MazeSpawner : MonoBehaviour
 {
-    public GameObject CellPrefab;
-    public GameObject FinishSpotPrefab;
+    [SerializeField] private GameObject _CellPrefab;
+    [SerializeField] private GameObject _FinishSpotPrefab;
 
-    public GameObject FrontParent;
-    public GameObject BackParent;
-    public GameObject LeftParent;
-    public GameObject RightParent;
-    public GameObject TopParent;
-    public GameObject BottomParent;
+    [SerializeField] private GameObject _FrontParent;
+    [SerializeField] private GameObject _BackParent;
+    [SerializeField] private GameObject _LeftParent;
+    [SerializeField] private GameObject _RightParent;
+    [SerializeField] private GameObject _TopParent;
+    [SerializeField] private GameObject _BottomParent;
 
     private List<GameObject> parents;
     private List<GameObject> children;
 
     public int sizeCube { get; set; }
 
-    public static float coeff = 2;
+    public static float coeff { get; set; } = 2;
 
-    public static int length;
+    public static int length { get; set; }
 
     public void SpawnMaze()
     {
         parents = new List<GameObject>();
         children = new List<GameObject>();
+
         MazeCubeGenerator mazeGenerator = new MazeCubeGenerator(sizeCube);
-
-        Debug.Log(mazeGenerator.Size);
-
         MazeCubeGeneratorCell[,,] maze = mazeGenerator.GenerateMaze();
 
         length = maze.GetLength(0) - 2;
@@ -40,8 +38,8 @@ public class MazeSpawner : MonoBehaviour
         {
             for (int y = 1; y < length; y++)
             {
-                var FrontChild = Instantiate(CellPrefab, new Vector3(x * coeff, y * coeff, 0), Quaternion.identity);
-                FrontChild.transform.SetParent(FrontParent.transform);
+                var FrontChild = Instantiate(_CellPrefab, new Vector3(x * coeff, y * coeff, 0), Quaternion.identity);
+                FrontChild.transform.SetParent(_FrontParent.transform);
 
                 children.Add(FrontChild);
 
@@ -52,16 +50,16 @@ public class MazeSpawner : MonoBehaviour
             }
         }
 
-        FrontParent.transform.position = new Vector3(0, 0, 0);
+        _FrontParent.transform.position = new Vector3(0, 0, 0);
 
-        parents.Add(FrontParent);
+        parents.Add(_FrontParent);
 
         for (int x = 1; x < length; x++)
         {
             for (int y = 1; y < length; y++)
             {
-                var BackChild = Instantiate(CellPrefab, new Vector3(x * coeff, y * coeff, length * coeff), Quaternion.Euler(0, 180, 0));
-                BackChild.transform.SetParent(BackParent.transform);
+                var BackChild = Instantiate(_CellPrefab, new Vector3(x * coeff, y * coeff, length * coeff), Quaternion.Euler(0, 180, 0));
+                BackChild.transform.SetParent(_BackParent.transform);
 
                 children.Add(BackChild);
 
@@ -72,16 +70,16 @@ public class MazeSpawner : MonoBehaviour
             }
         }
 
-        BackParent.transform.position = new Vector3(0.63f, 0, -1.01f);
+        _BackParent.transform.position = new Vector3(0.63f, 0, -1.01f);
 
-        parents.Add(BackParent);
+        parents.Add(_BackParent);
 
         for (int z = 1; z < length; z++)
         {
             for (int y = 1; y < length; y++)
             {
-                var LeftChild = Instantiate(CellPrefab, new Vector3(0, y * coeff, z * coeff), Quaternion.Euler(0, 90, 0));
-                LeftChild.transform.SetParent(LeftParent.transform);
+                var LeftChild = Instantiate(_CellPrefab, new Vector3(0, y * coeff, z * coeff), Quaternion.Euler(0, 90, 0));
+                LeftChild.transform.SetParent(_LeftParent.transform);
 
                 children.Add(LeftChild);
 
@@ -92,16 +90,16 @@ public class MazeSpawner : MonoBehaviour
             }
         }
 
-        LeftParent.transform.position = new Vector3(0.82f, 0, -0.19f);
+        _LeftParent.transform.position = new Vector3(0.82f, 0, -0.19f);
 
-        parents.Add(LeftParent);
+        parents.Add(_LeftParent);
 
         for (int z = 1; z < length; z++)
         {
             for (int y = 1; y < length; y++)
             {
-                var RightChild = Instantiate(CellPrefab, new Vector3(length * coeff, y * coeff, z * coeff), Quaternion.Euler(0, -90, 0));
-                RightChild.transform.SetParent(RightParent.transform);
+                var RightChild = Instantiate(_CellPrefab, new Vector3(length * coeff, y * coeff, z * coeff), Quaternion.Euler(0, -90, 0));
+                RightChild.transform.SetParent(_RightParent.transform);
 
                 children.Add(RightChild);
 
@@ -112,16 +110,16 @@ public class MazeSpawner : MonoBehaviour
             }
         }
 
-        RightParent.transform.position = new Vector3(-0.19f, 0, -0.82f);
+        _RightParent.transform.position = new Vector3(-0.19f, 0, -0.82f);
 
-        parents.Add(RightParent);
+        parents.Add(_RightParent);
 
         for (int z = 1; z < length; z++)
         {
             for (int x = 1; x < length; x++)
             {
-                var BottomChild = Instantiate(CellPrefab, new Vector3(x * coeff, 0, z * coeff), Quaternion.Euler(-90, 0, 0));
-                BottomChild.transform.SetParent(BottomParent.transform);
+                var BottomChild = Instantiate(_CellPrefab, new Vector3(x * coeff, 0, z * coeff), Quaternion.Euler(-90, 0, 0));
+                BottomChild.transform.SetParent(_BottomParent.transform);
 
                 children.Add(BottomChild);
 
@@ -132,16 +130,16 @@ public class MazeSpawner : MonoBehaviour
             }
         }
 
-        BottomParent.transform.position = new Vector3(0, 0.515f, -0.501f);
+        _BottomParent.transform.position = new Vector3(0, 0.515f, -0.501f);
 
-        parents.Add(BottomParent);
+        parents.Add(_BottomParent);
 
         for (int z = 1; z < length; z++)
         {
             for (int x = 1; x < length; x++)
             {
-                var TopChild = Instantiate(CellPrefab, new Vector3(x * coeff, length * coeff, z * coeff), Quaternion.Euler(90, 0, 0));
-                TopChild.transform.SetParent(TopParent.transform);
+                var TopChild = Instantiate(_CellPrefab, new Vector3(x * coeff, length * coeff, z * coeff), Quaternion.Euler(90, 0, 0));
+                TopChild.transform.SetParent(_TopParent.transform);
 
                 children.Add(TopChild);
 
@@ -152,9 +150,9 @@ public class MazeSpawner : MonoBehaviour
             }
         }
 
-        TopParent.transform.position = new Vector3(0, -0.515f, -0.501f);
+        _TopParent.transform.position = new Vector3(0, -0.515f, -0.501f);
 
-        parents.Add(TopParent);
+        parents.Add(_TopParent);
 
         SpawnFinish();
     }
@@ -163,6 +161,7 @@ public class MazeSpawner : MonoBehaviour
     {
         foreach (GameObject parent in parents)
         {
+            if(parent != null)
             parent.transform.position = Vector3.zero;
         }
 
@@ -187,7 +186,7 @@ public class MazeSpawner : MonoBehaviour
 
         Transform spawnPlace = cells[position];
 
-        var finish = Instantiate(FinishSpotPrefab, spawnPlace.position, Quaternion.identity);
+        var finish = Instantiate(_FinishSpotPrefab, spawnPlace.position, Quaternion.identity);
 
         finish.transform.SetParent(spawnPlace);
     }

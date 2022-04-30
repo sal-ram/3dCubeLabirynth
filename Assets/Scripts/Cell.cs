@@ -7,15 +7,4 @@ public class Cell : MonoBehaviour
     public GameObject WallLeft;
     public GameObject WallBottom;
     public GameObject floor;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

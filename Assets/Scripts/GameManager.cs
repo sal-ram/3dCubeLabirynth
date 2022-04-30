@@ -7,16 +7,18 @@ public class GameManager : MonoBehaviour
     private MazeSpawner mazeManager;
     private PlayerSpawner playerManager;
 
-    public GameObject MazeSpawner;
-    public GameObject PlayerSpawner;
-
-    public ViewManager MainMenu;
+    [SerializeField]
+    private GameObject _MazeSpawner;
+    [SerializeField]
+    private GameObject _PlayerSpawner;
+    [SerializeField]
+    private ViewManager _MainMenu;
 
     // Start is called before the first frame update
     void Start()
     {
-        mazeManager = MazeSpawner.GetComponent<MazeSpawner>();
-        playerManager = PlayerSpawner.GetComponent<PlayerSpawner>();
+        mazeManager = _MazeSpawner.GetComponent<MazeSpawner>();
+        playerManager = _PlayerSpawner.GetComponent<PlayerSpawner>();
     }
 
     // Update is called once per frame
@@ -24,7 +26,7 @@ public class GameManager : MonoBehaviour
     {
         if (PlayerController.IsFinished)
         {
-            MainMenu.FinishWindowActivate();
+            _MainMenu.FinishWindowActivate();
             PlayerController.IsFinished = false;
         }
     }

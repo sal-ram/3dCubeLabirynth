@@ -195,9 +195,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7df7c550b758cbc4495e81aa99ec03aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MazeSpawner: {fileID: 891293082}
-  PlayerSpawner: {fileID: 1439363511}
-  MainMenu: {fileID: 1878896082}
+  _MazeSpawner: {fileID: 891293082}
+  _PlayerSpawner: {fileID: 1439363511}
+  _MainMenu: {fileID: 1878896082}
 --- !u!4 &162070870
 Transform:
   m_ObjectHideFlags: 0
@@ -926,14 +926,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f1091cea3fa7a4db2205fe20093ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CellPrefab: {fileID: 4766741562454906207, guid: 22b88fdecde932043b5ccfaf023a5272, type: 3}
-  FinishSpotPrefab: {fileID: 3510452590410935390, guid: 08a9ba0c6cc7cc24f96d9904c76e1e57, type: 3}
-  FrontParent: {fileID: 1035349006}
-  BackParent: {fileID: 486486364}
-  LeftParent: {fileID: 1884442895}
-  RightParent: {fileID: 1370556525}
-  TopParent: {fileID: 2032003498}
-  BottomParent: {fileID: 1225501721}
+  _CellPrefab: {fileID: 4766741562454906207, guid: 22b88fdecde932043b5ccfaf023a5272, type: 3}
+  _FinishSpotPrefab: {fileID: 3510452590410935390, guid: 08a9ba0c6cc7cc24f96d9904c76e1e57, type: 3}
+  _FrontParent: {fileID: 1035349006}
+  _BackParent: {fileID: 486486364}
+  _LeftParent: {fileID: 1884442895}
+  _RightParent: {fileID: 1370556525}
+  _TopParent: {fileID: 2032003498}
+  _BottomParent: {fileID: 1225501721}
 --- !u!4 &891293084
 Transform:
   m_ObjectHideFlags: 0
@@ -1156,7 +1156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2782b5f371fad41ab6a3a3c08632d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 50
 --- !u!4 &1155850895
 Transform:
   m_ObjectHideFlags: 0
@@ -1852,7 +1851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6473638c58b6343ba092821d9e17db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 3510452590410935390, guid: c41200dc245313244a35ac727e3a4265, type: 3}
+  _playerPrefab: {fileID: 3510452590410935390, guid: c41200dc245313244a35ac727e3a4265, type: 3}
 --- !u!4 &1439363513
 Transform:
   m_ObjectHideFlags: 0

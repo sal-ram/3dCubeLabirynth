@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8960096391373017659}
   - component: {fileID: 7055006655278438692}
   - component: {fileID: 4486544906516265131}
-  - component: {fileID: -6777154002823500217}
   m_Layer: 0
   m_Name: SpotFinish
   m_TagString: Finish
@@ -96,15 +95,3 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-6777154002823500217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3510452590410935390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 858ee1af9872b694c969789c0a4c90c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

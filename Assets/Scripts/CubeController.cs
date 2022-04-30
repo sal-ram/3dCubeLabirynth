@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class CubeController : MonoBehaviour
 {
-    private float verticalInput;
-    private float horizontalInput;
-    public int movementSpeed = 15;
+    private int movementSpeed = 45;
     private InputController controller;
 
     private Vector3 center;
